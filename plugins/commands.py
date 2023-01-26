@@ -30,6 +30,8 @@ async def start_bot(bot, m: Message):
     await m.reply_text(Presets.WELCOME_MESSAGE.format(m.from_user.mention(),
                                                       Config.SUPPORT_CHAT if Config.SUPPORT_CHAT else "_______"),
                        parse_mode='html',
+                       photo="https://telegra.ph/file/8bfb25704003a8b181400.jpg",
+                       quote=True,
                        disable_web_page_preview=True
                        )
 
