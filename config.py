@@ -1,4 +1,3 @@
-from os import getenv
 import os
 import logging
 
@@ -9,11 +8,24 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-
 class Config(object):
-      API_HASH = getenv("API_HASH", "5264bf4663e9159565603522f58d3c18")
-      API_ID = int(getenv("API_ID", 11973721))
-      BOT_TOKEN = getenv("BOT_TOKEN", "5949999646:AAGNAzsUTMutsqtnSk2R4MkGgCQ0uMtqbIU")
+    # Get a bot token from botfather
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+
+    # Get from my.telegram.org
+    APP_ID = int(os.environ.get("APP_ID", ""))
+
+    # Get from my.telegram.org
+    API_HASH = os.environ.get("API_HASH", "")
+
+    # Database URI
+    DB_URI = os.environ.get("DATABASE_URL", "")
+
+    # Group / channel username of the support chat
+    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "")
+
+    # List of admin user ids for special functions(Storing as an array)
+    AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
 
 
 def LOGGER(name: str) -> logging.Logger:
